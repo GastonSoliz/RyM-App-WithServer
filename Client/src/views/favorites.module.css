@@ -1,0 +1,10 @@
+.container {
+  background-image: url("../assets/favorites.png");
+  background-size: cover;
+
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  z-index: -1;
+}

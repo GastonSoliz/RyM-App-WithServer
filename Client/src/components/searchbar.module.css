@@ -1,0 +1,6 @@
+.searchbarContainer input {
+  border-radius: 5px;
+  border: 1px solid #39c;
+  background-color: #eee;
+  height: 30px;
+}

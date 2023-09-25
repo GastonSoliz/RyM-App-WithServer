@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { addFav, removeFav } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import style from "./card.module.css";
 
 export default function Card(prop) {
   const { character, onClose } = prop;
@@ -32,7 +33,7 @@ export default function Card(prop) {
   }, [myFavorites]);
 
   return (
-    <div>
+    <div className={style.cardContainer}>
       {isFav ? (
         <button onClick={handleFavorite}>❤️</button>
       ) : (
@@ -47,14 +48,18 @@ export default function Card(prop) {
           X
         </button>
       )}
-      <Link to={`/detail/${character.id}`}>
-        <h2>Name: {character.name}</h2>
-      </Link>
+      <div className={style.imageContainer}>
+        <img src={character.image} className={style.characterImage} alt="" />
+      </div>
+      <h2>Name: {character.name}</h2>
       <h2>Status: {character.status}</h2>
       <h2>Species:{character.species}</h2>
       <h2>Gender: {character.gender}</h2>
       <h2>{character.origin.name}</h2>
-      <img src={character.image} alt="" />
+
+      <Link to={`/detail/${character.id}`}>
+        <button>Mas info</button>
+      </Link>
     </div>
   );
 }

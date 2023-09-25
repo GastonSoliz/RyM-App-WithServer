@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import validate from "../utils/validation.js";
+import style from "./form.module.css";
 
 export default function Form({ login }) {
   const [userData, setuserData] = useState({
@@ -22,15 +23,6 @@ export default function Form({ login }) {
   }
 
   function handleDisabled() {
-    // let disabled;
-    // for (let error in errors) {
-    //   if (errors[error] === "") disabled = false;
-    //   else {
-    //     disabled = true;
-    //     break;
-    //   }
-    // }
-    // return disabled;
     for (let error in errors)
       if (errors[error] !== "") {
         return true;
@@ -40,26 +32,40 @@ export default function Form({ login }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>EMAIL:</label>
-      <input
-        name="email"
-        placeholder="Ingrese su email..."
-        type="text"
-        onChange={handleChange}
-      />
-      <span>{errors.email}</span>
-      <label>PASSWORD:</label>
-      <input
-        name="password"
-        placeholder="Ingrese su contraseña"
-        type="text"
-        onChange={handleChange}
-      />
-      <span>{errors.password}</span>
-      <button type="submit" disabled={handleDisabled()}>
-        SUBMIT
-      </button>
-    </form>
+    <div className={style.container}>
+      <div className={style.welcome}>
+        <div className={style.mensaje}>
+          <h2>BIENVENIDO A MI APP RICK&MORTY</h2>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
+            doloremque quisquam repudiandae fuga blanditiis architecto nesciunt
+            ipsa ratione, accusantium, dolor porro exercitationem? Illum
+            doloremque quos sequi, sit incidunt explicabo sint!
+          </p>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit} className={style.form}>
+        <h2>INGRESAR USUARIO</h2>
+        <label>EMAIL:</label>
+        <input
+          name="email"
+          placeholder="Ingrese su email..."
+          type="text"
+          onChange={handleChange}
+        />
+        <span>{errors.email}</span>
+        <label>PASSWORD:</label>
+        <input
+          name="password"
+          placeholder="Ingrese su contraseña"
+          type="text"
+          onChange={handleChange}
+        />
+        <span>{errors.password}</span>
+        <button type="submit" disabled={handleDisabled()}>
+          SUBMIT
+        </button>
+      </form>
+    </div>
   );
 }

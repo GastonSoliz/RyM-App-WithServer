@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards.jsx";
 import { filterCards, orderCards, reset } from "../redux/actions.js";
+import style from "./favorites.module.css";
 
 export default function Favorites() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function Favorites() {
   }
 
   return (
-    <div>
+    <div className={style.container}>
       <select onChange={HandleOrder}>
         <option value="Ascendente">Ascendente</option>
         <option value="Descendente">Descendente</option>

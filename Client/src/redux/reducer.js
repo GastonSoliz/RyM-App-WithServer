@@ -28,13 +28,17 @@ export default function rootReducer(state = initialState, action) {
     //     ),
     //   };
     case "REMOVE_FAV":
-      return { ...state, myFavorites: action.payload };
+      return {
+        ...state,
+        myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
 
     case "FILTER":
-      const copia = state.allCharacters.filter(
+      const filter = state.allCharacters.filter(
         (character) => character.gender === action.payload
       );
-      return { ...state, myFavorites: copia };
+      return { ...state, myFavorites: filter };
     case "ORDER":
       let ordenado;
       if (action.payload === "Ascendente") {
@@ -46,6 +50,6 @@ export default function rootReducer(state = initialState, action) {
     case "RESET":
       return { ...state, myFavorites: state.allCharacters };
     default:
-      return { ...state };
+      return state;
   }
 }

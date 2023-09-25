@@ -6,10 +6,12 @@
 // const server = express();
 const server = require("./app");
 const PORT = 3001;
+const { conn } = require("./DB_connection");
 
 //const URL = "https://rickandmortyapi.com/api/character/";
 
 server.listen(PORT, () => {
+  conn.sync({ force: true });
   console.log(`Servidor levantado en el puerto ${PORT}`);
 });
 
