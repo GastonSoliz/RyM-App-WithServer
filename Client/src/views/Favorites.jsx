@@ -1,23 +1,33 @@
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../components/Cards.jsx";
-import { filterCards, orderCards, reset } from "../redux/actions.js";
+
 import style from "./favorites.module.css";
+import { useEffect } from "react";
+import { getFav } from "../redux/actions/characterActions.js";
 
 export default function Favorites() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.userReducer.user);
+  console.log("DATOS DEL USUARIO:", user);
 
-  const myFavorites = useSelector((state) => state.myFavorites);
+  useEffect(() => {
+    dispatch(getFav(user.id));
+  }, [dispatch]);
 
+  const myFavorites = useSelector(
+    (state) => state.characterReducer.myFavorites
+  );
+  console.log("COMO QUEDA LOS FAVORITOS:", myFavorites);
   function HandleOrder(e) {
-    dispatch(orderCards(e.target.value));
+    // dispatch(orderCards(e.target.value));
   }
 
   function HandleFilter(e) {
-    dispatch(filterCards(e.target.value));
+    //dispatch(filterCards(e.target.value));
   }
 
   function HandleReset() {
-    dispatch(reset());
+    //dispatch(reset());
   }
 
   return (
@@ -33,7 +43,11 @@ export default function Favorites() {
         <option value="unknown">unknown</option>
       </select>
       <button onClick={HandleReset}>RESET</button>
-      <Cards characters={myFavorites} />
+      {Array.isArray(myFavorites) && myFavorites.length > 0 ? (
+        <Cards characters={myFavorites} />
+      ) : (
+        <p>No hay favoritos</p>
+      )}
     </div>
   );
 }

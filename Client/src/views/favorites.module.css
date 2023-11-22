@@ -1,6 +1,6 @@
 .container {
-  background-image: url("../assets/favorites.png");
-  background-size: cover;
+  /* background-image: url("../assets/favorites.png");
+  background-size: cover; */
 
   position: fixed;
   height: 100%;

@@ -1,28 +1,30 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid black;
+  align-items: flex-start;
+  background-color: #39064e;
+  color: #eceff1;
   border-radius: 8px;
-  padding: 10px;
+  padding-left: 5px;
   height: 400px;
   width: 250px;
 }
-.cardContainer h2 {
-  font-size: 15px;
-  margin: 3px;
+
+.name {
+  font-size: 14px;
+  border: 1px solid white;
+  display: block;
 }
-
-
 
 .characterImage {
   display: block;
-  width: 100%;
+  width: 200px;
   height: 150px;
 }
 
-.imageContainer {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 5px;
+.infoCard {
+  font-size: 12px;
+  margin-top: auto;
+
+  border: 1px solid white;
 }

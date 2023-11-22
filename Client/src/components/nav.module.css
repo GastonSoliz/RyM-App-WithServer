@@ -1,23 +1,39 @@
 .navContainer {
-  background-color: black;
+  background-color: #1b3039;
   display: flex;
-  margin-bottom: 25px;
-  border: 1px solid black;
-  padding: 5px 10px;
+  text-align: center;
+  justify-content: flex-start;
+  align-items: center;
+  height: 65px;
 }
 
 .navContainer button {
-  width: 100px;
   height: 50px;
   border-radius: 10px;
-  border: 2px solid gray;
+  border: none;
+  background-color: #1b3039;
+  color: #eceff1;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.navContainer button:hover {
+  color: #04adbf;
 }
 
 .navBar_left {
-  margin-left: 10px;
-  margin-right: 300px;
+  display: flex;
+  margin-right: auto;
+}
+
+.navBar_left img {
+  width: 150px;
+  height: 50px;
+  padding-left: 20px;
+  padding-bottom: 10px;
 }
 
 .navBar_right {
-  margin-left: 465px;
+  margin-left: auto;
 }

@@ -3,20 +3,34 @@ let initialState = {
   myFavorites: [],
 };
 
-export default function rootReducer(state = initialState, action) {
+export default function characterReducer(state = initialState, action) {
   switch (action.type) {
-    // case "ADD_FAV":
-    //   return {
-    //     ...state,
-    //     myFavorites: [...state.myFavorites, action.payload],
-    //     allCharacters: [...state.myFavorites, action.payload],
-    //   };
+    case "GET_CHAR":
+      return {
+        ...state,
+        allCharacters: [...state.allCharacters, action.payload],
+      };
+    case "GET_FAVS":
+      return { ...state, myFavorites: action.payload };
+
+    case "REMOVE_CHAR":
+      return {
+        ...state,
+        allCharacters: state.allCharacters.filter(
+          (ch) => ch.id !== action.payload
+        ),
+      };
     case "ADD_FAV":
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharacters: action.payload,
+        myFavorites: [...state.myFavorites, action.payload],
       };
+    // case "ADD_FAV":
+    //   return {
+    //     ...state,
+    //     myFavorites: action.payload,
+    //     allCharacters: action.payload,
+    //   };
     // case "REMOVE_FAV":
     //   return {
     //     ...state,
@@ -30,8 +44,9 @@ export default function rootReducer(state = initialState, action) {
     case "REMOVE_FAV":
       return {
         ...state,
-        myFavorites: action.payload,
-        allCharacters: action.payload,
+        myFavorites: state.myFavorites.filter(
+          (ch) => ch.id !== action.payload.id
+        ),
       };
 
     case "FILTER":

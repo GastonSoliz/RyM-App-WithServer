@@ -3,9 +3,11 @@ const { Favorite } = require("../DB_connection");
 const deleteFav = async (req, res) => {
   const { id } = req.params;
   try {
+    const toDestroy = await Favorite.findByPk(id);
+    if (!toDestroy) return res.status(400).json("NO SE ENCONTRO");
     await Favorite.destroy({ where: { id: id } });
-    const favs = await Favorite.findAll();
-    return res.status(200).json(favs);
+
+    return res.status(200).json(toDestroy);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
