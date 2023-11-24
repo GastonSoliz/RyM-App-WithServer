@@ -1,6 +1,7 @@
 let initialState = {
   allCharacters: [],
   myFavorites: [],
+  favoritesFilter: [],
 };
 
 export default function characterReducer(state = initialState, action) {
@@ -25,22 +26,6 @@ export default function characterReducer(state = initialState, action) {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
       };
-    // case "ADD_FAV":
-    //   return {
-    //     ...state,
-    //     myFavorites: action.payload,
-    //     allCharacters: action.payload,
-    //   };
-    // case "REMOVE_FAV":
-    //   return {
-    //     ...state,
-    //     myFavorites: state.myFavorites.filter(
-    //       (character) => character.id !== Number(action.payload)
-    //     ),
-    //     allCharacters: state.allCharacters.filter(
-    //       (character) => character.id !== Number(action.payload)
-    //     ),
-    //   };
     case "REMOVE_FAV":
       return {
         ...state,
@@ -49,11 +34,13 @@ export default function characterReducer(state = initialState, action) {
         ),
       };
 
-    case "FILTER":
-      const filter = state.allCharacters.filter(
-        (character) => character.gender === action.payload
-      );
-      return { ...state, myFavorites: filter };
+    case "GENDER":
+      return {
+        ...state,
+        favoritesFilter: state.myFavorites.filter(
+          (ch) => ch.gender === action.payload
+        ),
+      };
     case "ORDER":
       let ordenado;
       if (action.payload === "Ascendente") {
@@ -61,9 +48,9 @@ export default function characterReducer(state = initialState, action) {
       } else {
         ordenado = state.myFavorites.sort((a, b) => (a.id < b.id ? 1 : -1));
       }
-      return { ...state, myFavorites: [...ordenado] };
+      return { ...state, favoritesFilter: [...ordenado] };
     case "RESET":
-      return { ...state, myFavorites: state.allCharacters };
+      return { ...state, favoritesFilter: state.myFavorites };
     default:
       return state;
   }

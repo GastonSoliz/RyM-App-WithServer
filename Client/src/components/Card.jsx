@@ -42,23 +42,29 @@ export default function Card({ character, onClose }) {
   }
   return (
     <div className={style.cardContainer}>
-      <div className={style.name}>
-        <h2>Name: {character.name}</h2>
-      </div>
-      {/* {isFav ? (
-        <button onClick={handleFavorite}>❤️</button>
-      ) : (
-        <button onClick={handleFavorite}>🤍</button>
-      )}
       {location.pathname !== "/favorites" && (
         <button
+          className={style.closeButton}
           onClick={() => {
             handleClose(character.id);
           }}
         >
           X
         </button>
-      )} */}
+      )}
+      <div className={style.name}>
+        <h2>Name: {character.name}</h2>
+        {isFav ? (
+          <button className={style.favoriteButton} onClick={handleFavorite}>
+            ❤️
+          </button>
+        ) : (
+          <button className={style.favoriteButton} onClick={handleFavorite}>
+            🤍
+          </button>
+        )}
+      </div>
+
       <div className={style.imageContainer}>
         <img src={character.image} className={style.characterImage} alt="" />
       </div>
@@ -66,10 +72,9 @@ export default function Card({ character, onClose }) {
         <h2>Status: {character.status}</h2>
         <h2>Species:{character.species}</h2>
         <h2>Gender: {character.gender}</h2>
-        <h2>{character.origin?.name}</h2>
-
+        <h2>Origin: {character.origin}</h2>
         <Link to={`/detail/${character.id}`}>
-          <button>Mas info</button>
+          <h2>Mas info</h2>
         </Link>
       </div>
     </div>

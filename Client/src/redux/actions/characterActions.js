@@ -53,11 +53,11 @@ export function removeFav(id) {
   };
 }
 
-export function filterCards(gender) {
-  return { type: "FILTER", payload: gender };
+export function filterGender(gender) {
+  return { type: "GENDER", payload: gender };
 }
 
-export function orderCards(orden) {
+export function filterOrder(orden) {
   return { type: "ORDER", payload: orden };
 }
 
