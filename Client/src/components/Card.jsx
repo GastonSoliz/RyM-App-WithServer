@@ -53,7 +53,7 @@ export default function Card({ character, onClose }) {
         </button>
       )}
       <div className={style.name}>
-        <h2>Name: {character.name}</h2>
+        <h2>{character.name}</h2>
         {isFav ? (
           <button className={style.favoriteButton} onClick={handleFavorite}>
             ❤️

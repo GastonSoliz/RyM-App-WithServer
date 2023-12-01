@@ -1,9 +1,36 @@
 .detailContainer {
+  background-image: url("../assets/detail.jpg");
+  background-size: cover;
+
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 100%;
 }
 
 .imageContainer {
-  display: flex;
-  justify-content: center;
-  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin-right: 20px;
+  border: 1px solid white;
+}
+
+.characterImage {
+  display: block;
+  width: 350px;
+  height: 300px;
+}
+
+.infoCard {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+
+  background-color: #b68dc7;
+  color: #eceff1;
+}
+
+.infoCard h2 {
+  margin: 10px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
 }

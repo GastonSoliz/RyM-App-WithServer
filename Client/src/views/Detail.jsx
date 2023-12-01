@@ -21,6 +21,8 @@ export default function Detail() {
     return setCharacter({});
   }, [id]);
 
+  console.log(character);
+
   if (!{ character }) {
     return <h1>PAGINA DETAIL</h1>;
   } else {
