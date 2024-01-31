@@ -12,6 +12,18 @@ export function getCharById(id) {
   };
 }
 
+export function get5Char() {
+  const endpoint = `http://localhost:3001/rickandmorty/characters`;
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(endpoint);
+      return dispatch({ type: "GET_5CHAR", payload: data });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
+
 export function removeChar(id) {
   return { type: "REMOVE_CHAR", payload: id };
 }

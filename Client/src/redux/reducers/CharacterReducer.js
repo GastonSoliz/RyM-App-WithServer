@@ -1,5 +1,6 @@
 let initialState = {
   allCharacters: [],
+  charactersCarrousel: [],
   myFavorites: [],
   favoritesFilter: [],
 };
@@ -10,6 +11,11 @@ export default function characterReducer(state = initialState, action) {
       return {
         ...state,
         allCharacters: [...state.allCharacters, action.payload],
+      };
+    case "GET_5CHAR":
+      return {
+        ...state,
+        charactersCarrousel: action.payload,
       };
     case "GET_FAVS":
       return { ...state, myFavorites: action.payload };
