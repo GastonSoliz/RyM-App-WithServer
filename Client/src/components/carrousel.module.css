@@ -1,0 +1,78 @@
+.carrouselContainer {
+  background-color: #b59ebe;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+
+  width: 85%;
+  height: 400px;
+  margin: 40px auto;
+  position: relative;
+
+  justify-content: center;
+
+  border-radius: 80px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  height: 100%;
+}
+
+.centeredImage {
+  position: relative;
+  margin: 0px 100px 0px 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.indicatorsContainer {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 35%;
+}
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.active {
+  background-color: blue;
+}
+
+.buttonText {
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #1b3039;
+  color: #eceff1;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px;
+}
+
+.buttonsCarrousel {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px 10px;
+  z-index: 1;
+
+  margin-left: 100px;
+}
