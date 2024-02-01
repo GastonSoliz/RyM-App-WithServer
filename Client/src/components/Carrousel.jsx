@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { get5Char } from "../redux/actions/characterActions";
+import { get5Char, getCharById } from "../redux/actions/characterActions";
 import { useEffect, useState } from "react";
 import style from "./carrousel.module.css";
 
@@ -29,17 +30,20 @@ export default function Carrousel() {
     setAutoplay(false);
   };
 
+  function handleSearch(id) {
+    dispatch(getCharById(id));
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       if (autoplay) {
-        // Cambiar automáticamente a la siguiente imagen si el autoplay está habilitado
         const nextIndex =
           selectIndex < characters.length - 1 ? selectIndex + 1 : 0;
         setSelectedIndex(nextIndex);
       }
-    }, 2000); // Cambiar cada 2 segundos
+    }, 5000);
 
-    return () => clearInterval(interval); // Limpiar el intervalo cuando el componente se desmonta
+    return () => clearInterval(interval);
   }, [autoplay, characters, selectIndex]);
 
   useEffect(() => {
@@ -49,27 +53,45 @@ export default function Carrousel() {
   //console.log("carrousel:", characters);
   return (
     <div className={style.carrouselContainer}>
-      <button onClick={prev}>{"<"}</button>
-      <img
-        src={characters[selectIndex]?.image}
-        alt={characters[selectIndex]?.name}
-      />
-      <button onClick={next}>{">"}</button>
-      {characters.map((_, index) => (
-        <span
-          key={index}
-          onClick={() => handleIndicatorClick(index)}
-          style={{
-            display: "inline-block",
-            width: "10px",
-            height: "10px",
-            borderRadius: "50%",
-            backgroundColor: index === selectIndex ? "blue" : "gray",
-            margin: "0 5px",
-            cursor: "pointer",
-          }}
-        ></span>
-      ))}
+      <div className={style.imageContainer}>
+        <button onClick={prev} className={style.buttonsCarrousel}>
+          {"<"}
+        </button>
+        <div className={style.centeredImage}>
+          <img
+            src={characters[selectIndex]?.image}
+            alt={characters[selectIndex]?.name}
+          />
+          <div className={style.indicatorsContainer}>
+            {characters.map((_, index) => (
+              <span
+                key={index}
+                onClick={() => handleIndicatorClick(index)}
+                className={`${style.indicator} ${
+                  index === selectIndex ? style.active : ""
+                }`}
+              ></span>
+            ))}
+          </div>
+        </div>
+        <div className={style.carrouselText}>
+          <h2>Name:</h2>
+          <h2>{characters[selectIndex].name}</h2>
+          <button
+            onClick={() => handleSearch(characters[selectIndex].id)}
+            className={style.buttonText}
+          >
+            AGREGAR
+          </button>
+          <Link to={`/detail/${characters[selectIndex].id}`}>
+            <button className={style.buttonText}>MAS INFO</button>
+          </Link>
+        </div>
+
+        <button onClick={next} className={style.buttonsCarrousel}>
+          {">"}
+        </button>
+      </div>
     </div>
   );
 }
