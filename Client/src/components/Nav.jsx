@@ -28,11 +28,11 @@ export default function Nav() {
         <img src={insigniaImg} alt="insignia" />
       </div>
 
-      {location.pathname !== "/favorites" && (
+      {/* {location.pathname !== "/favorites" && (
         <>
           <SearchBar />
         </>
-      )}
+      )} */}
 
       <div className={style.navBar_right}>
         <Link to="/home">

@@ -1,5 +1,5 @@
 .navContainer {
-  background-color: #1b3039;
+  background-color: #282828;
   display: flex;
   text-align: center;
   justify-content: flex-start;
@@ -11,7 +11,7 @@
   height: 50px;
   border-radius: 10px;
   border: none;
-  background-color: #1b3039;
+  background: none;
   color: #eceff1;
   cursor: pointer;
   font-weight: bold;
