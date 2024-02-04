@@ -38,15 +38,18 @@ export default function SearchBar() {
   }
 
   return (
-    <div className={style.searchbarContainer}>
-      <button onClick={handleRandom}>AGREGAR ALEATORIO</button>
-      <input
-        placeholder="Ingresar un ID..."
-        type="search"
-        value={id}
-        onChange={handleChange}
-      />
-      <button onClick={() => handleSearch(id)}>AGREGAR</button>
+    <div className={style.cardsSearchContainer}>
+      <h2>Agrega personajes por su id o de manera aleatoria!</h2>
+      <div className={style.searchbarContainer}>
+        <input
+          placeholder="Ingresar un ID..."
+          type="search"
+          value={id}
+          onChange={handleChange}
+        />
+        <button onClick={() => handleSearch(id)}>Agregar</button>
+        <button onClick={handleRandom}>Agregar aleatorio</button>
+      </div>
     </div>
   );
 }
