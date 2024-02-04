@@ -3,6 +3,7 @@ import Cards from "../components/Cards.jsx";
 import style from "./home.module.css";
 import { useSelector } from "react-redux";
 import Carrousel from "../components/Carrousel.jsx";
+import SearchBar from "../components/SearchBar.jsx";
 
 export default function Home({ onClose }) {
   const characters = useSelector(
@@ -19,6 +20,7 @@ export default function Home({ onClose }) {
         </div>
       </div>
       <Carrousel />
+      <SearchBar />
       <Cards characters={characters} onClose={onClose} />
     </div>
   );
