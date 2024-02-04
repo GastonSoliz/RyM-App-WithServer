@@ -76,15 +76,15 @@ export default function Carrousel() {
         </div>
         <div className={style.carrouselText}>
           <h2>Name:</h2>
-          <h2>{characters[selectIndex].name}</h2>
+          <h2>{characters[selectIndex]?.name}</h2>
           <button
-            onClick={() => handleSearch(characters[selectIndex].id)}
+            onClick={() => handleSearch(characters[selectIndex]?.id)}
             className={style.buttonText}
           >
-            AGREGAR
+            Agregar
           </button>
-          <Link to={`/detail/${characters[selectIndex].id}`}>
-            <button className={style.buttonText}>MAS INFO</button>
+          <Link to={`/detail/${characters[selectIndex]?.id}`}>
+            <button className={style.buttonText}>Mas info</button>
           </Link>
         </div>
 

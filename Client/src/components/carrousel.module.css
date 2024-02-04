@@ -1,5 +1,5 @@
 .carrouselContainer {
-  background-color: #b59ebe;
+  background-color: #282828;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
   width: 85%;
@@ -50,16 +50,26 @@
   background-color: blue;
 }
 
+.carrouselText h2 {
+  color: white;
+}
+
 .buttonText {
-  height: 50px;
+  width: 150px;
+  height: 30px;
+
+  margin: 10px;
+
   border-radius: 10px;
   border: none;
-  background-color: #1b3039;
-  color: #eceff1;
-  cursor: pointer;
+
+  background-color: #a4a4a4;
+
+  color: #191c1f;
   font-weight: bold;
   font-size: 15px;
-  margin: 10px;
+
+  cursor: pointer;
 }
 
 .buttonsCarrousel {
