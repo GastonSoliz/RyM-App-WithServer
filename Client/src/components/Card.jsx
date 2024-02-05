@@ -70,8 +70,6 @@ export default function Card({ character, onClose }) {
       </div>
       <div className={style.infoCard}>
         <h2>Status: {character.status}</h2>
-        <h2>Species:{character.species}</h2>
-        <h2>Gender: {character.gender}</h2>
         <h2>Origin: {character.origin}</h2>
         <Link to={`/detail/${character.id}`}>
           <h2>Mas info</h2>
