@@ -25,8 +25,6 @@ export default function Card({ character }) {
       dispatch(removeFav(character.id));
     } else {
       setIsFav(true);
-      console.log("LE MANDO: ", ch);
-      console.log("Pero puede ser tambien:", character);
       dispatch(postFav(ch));
     }
   }

@@ -16,8 +16,6 @@ export default function Favorites() {
 
   useEffect(() => {
     dispatch(getFav(user.id));
-    console.log(user);
-    console.log(myFavorites);
   }, [dispatch]);
 
   const myFavorites = useSelector(
@@ -55,8 +53,8 @@ export default function Favorites() {
         <Cards characters={myFavorites} />
       ) : (
         <p>
-          No hay favoritos,quiza tenes que agregarlos yendo al Home, o estas
-          jugando con los filtros y no en este caso no hay...
+          No hay favoritos, tienes que agregarlos yendo al Home, o estas jugando
+          con los filtros y no en este caso no hay...
         </p>
       )}
     </div>

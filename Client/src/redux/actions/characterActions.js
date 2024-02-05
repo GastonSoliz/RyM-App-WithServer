@@ -41,7 +41,6 @@ export function getFav(id) {
 }
 
 export function postFav(character) {
-  console.log("LLEGA AL ACTION ASI: ", character);
   const endpoint = `http://localhost:3001/rickandmorty/fav/${character.idUser}`;
   return async (dispatch) => {
     try {

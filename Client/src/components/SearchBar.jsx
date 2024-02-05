@@ -1,16 +1,11 @@
 import { useState } from "react";
 import style from "./searchbar.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCharById } from "../redux/actions/characterActions";
 
 export default function SearchBar() {
   const [id, setId] = useState("");
   const dispatch = useDispatch();
-  const allCharacters = useSelector(
-    (state) => state.characterReducer.allCharacters
-  );
-
-  console.log("SEARCH_BAR:", allCharacters);
 
   function handleChange(event) {
     event.preventDefault();

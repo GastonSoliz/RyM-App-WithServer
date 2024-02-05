@@ -50,7 +50,6 @@ export default function Carrousel() {
     dispatch(get5Char());
   }, []);
 
-  //console.log("carrousel:", characters);
   return (
     <div className={style.carrouselContainer}>
       <div className={style.imageContainer}>

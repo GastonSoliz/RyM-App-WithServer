@@ -18,7 +18,11 @@ export default function characterReducer(state = initialState, action) {
         charactersCarrousel: action.payload,
       };
     case "GET_FAVS":
-      return { ...state, myFavorites: action.payload };
+      return {
+        ...state,
+        myFavorites: action.payload,
+        favoritesFilter: action.payload,
+      };
 
     case "REMOVE_CHAR":
       return {
