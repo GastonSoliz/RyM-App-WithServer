@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Carrousel from "../components/Carrousel.jsx";
 import SearchBar from "../components/SearchBar.jsx";
 
-export default function Home({ onClose }) {
+export default function Home() {
   const characters = useSelector(
     (state) => state.characterReducer.allCharacters
   );
@@ -21,7 +21,7 @@ export default function Home({ onClose }) {
       </div>
       <Carrousel />
       <SearchBar />
-      <Cards characters={characters} onClose={onClose} />
+      <Cards characters={characters} />
     </div>
   );
 }

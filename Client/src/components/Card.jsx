@@ -8,7 +8,7 @@ import {
   removeFav,
 } from "../redux/actions/characterActions";
 
-export default function Card({ character, onClose }) {
+export default function Card({ character }) {
   const [isFav, setIsFav] = useState(false);
   const user = useSelector((state) => state.userReducer.user);
   const myFavorites = useSelector(
@@ -26,6 +26,7 @@ export default function Card({ character, onClose }) {
     } else {
       setIsFav(true);
       console.log("LE MANDO: ", ch);
+      console.log("Pero puede ser tambien:", character);
       dispatch(postFav(ch));
     }
   }
@@ -40,6 +41,7 @@ export default function Card({ character, onClose }) {
   function handleClose(id) {
     dispatch(removeChar(id));
   }
+
   return (
     <div className={style.cardContainer}>
       {location.pathname !== "/favorites" && (
@@ -64,7 +66,6 @@ export default function Card({ character, onClose }) {
           </button>
         )}
       </div>
-
       <div className={style.imageContainer}>
         <img src={character.image} className={style.characterImage} alt="" />
       </div>
