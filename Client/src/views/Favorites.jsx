@@ -16,6 +16,8 @@ export default function Favorites() {
 
   useEffect(() => {
     dispatch(getFav(user.id));
+    console.log(user);
+    console.log(myFavorites);
   }, [dispatch]);
 
   const myFavorites = useSelector(

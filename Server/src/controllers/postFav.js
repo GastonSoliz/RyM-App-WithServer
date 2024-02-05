@@ -4,6 +4,7 @@ const postFav = async (req, res) => {
   const { idUser } = req.params;
   console.log(idUser);
   const { id, name, origin, status, image, species, gender } = req.body;
+  console.log(req.body);
   try {
     if (id && name && origin && status && image && species && gender) {
       const user = await User.findByPk(idUser);
