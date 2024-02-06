@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Form />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/detail/:id" element={<Detail />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<ErrorPage />} />
