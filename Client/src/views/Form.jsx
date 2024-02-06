@@ -41,7 +41,7 @@ export default function Form() {
   }
 
   useEffect(() => {
-    if (access) {
+    if (access !== "false") {
       navigate("/home");
     }
   }, [access, userState]);
@@ -50,7 +50,7 @@ export default function Form() {
     event.preventDefault();
     dispatch(getUser(userLogin)).then((response) => {
       if (response && response.payload.success) {
-        dispatch(changeAccess(true));
+        dispatch(changeAccess("user"));
       }
     });
   }
@@ -65,7 +65,7 @@ export default function Form() {
   }
 
   function handleGuest() {
-    console.log("guest");
+    dispatch(changeAccess("guest"));
   }
 
   return (
