@@ -64,6 +64,10 @@ export default function Form() {
     setForm(() => state);
   }
 
+  function handleGuest() {
+    console.log("guest");
+  }
+
   return (
     <div className={style.container}>
       <div className={style.welcome}>
@@ -90,6 +94,10 @@ export default function Form() {
               <button onClick={() => handleForm("register")}>Registrate</button>
             </div>
           )}
+        </div>
+        <div className={style.guestContainer}>
+          <p>Puedes entrar tambien como invitado con ciertas limitaciones!</p>
+          <button onClick={() => handleGuest()}>Entra como invitado!</button>
         </div>
       </div>
       {form === "register" ? (

@@ -13,17 +13,19 @@
 
 .welcome {
   width: 60%;
-  height: 50vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
 .message {
   padding: 1rem;
-  color: #0837f2;
 
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Ajusta según tus preferencias */
+
+  background-color: rgb(51, 51, 51, 0.602);
+  border-radius: 8px;
 
   font-weight: bold;
 }
@@ -34,13 +36,39 @@
 }
 
 .message button {
-  padding: 1rem;
-  background-color: #04adbf;
+  width: 200px;
+  border: solid thin white;
+  padding: 0.7rem;
   border-radius: 2rem;
-  border: none;
+  background-color: white;
+  font-weight: bold;
+  margin-top: 3rem;
+  font-size: 0.8rem;
   cursor: pointer;
-  font-size: 0.9rem;
-  color: #fff;
+  color: #222;
+}
+
+.guestContainer {
+  background-color: rgb(51, 51, 51, 0.602);
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  margin-top: 20px;
+
+  width: 100%;
+}
+
+.guestContainer button {
+  border: solid thin white;
+  padding: 0.7rem;
+  border-radius: 2rem;
+  background-color: white;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #222;
 }
 
 .form {
