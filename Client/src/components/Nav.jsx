@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,12 +11,13 @@ export default function Nav() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("ACCESS DEL NAVBAR:", access);
-    !access && navigate("/");
-  }, [access, navigate]);
+    if (access === "false") {
+      navigate("/");
+    }
+  }, [access]);
 
   function logout() {
-    dispatch(changeAccess(false));
+    dispatch(changeAccess("false"));
   }
 
   return (
@@ -34,9 +35,13 @@ export default function Nav() {
         <Link to="/about">
           <button>Sobre mi</button>
         </Link>
-        <button className={style.navBar_right} onClick={logout}>
-          Cerrar sesion
-        </button>
+        {access === "user" ? (
+          <button className={style.navBar_right} onClick={logout}>
+            Cerrar sesion
+          </button>
+        ) : (
+          <button onClick={logout}>Iniciar sesión</button>
+        )}
       </div>
     </div>
   );

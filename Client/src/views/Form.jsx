@@ -64,7 +64,7 @@ export default function Form() {
     setForm(() => state);
   }
 
-  function handleGuest() {
+  function handleGuest(event) {
     dispatch(changeAccess("guest"));
   }
 
