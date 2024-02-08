@@ -8,9 +8,11 @@ import {
   removeFav,
 } from "../redux/actions/characterActions";
 
-export default function Card({ character }) {
+export default function Card({ character, handleWarning }) {
   const [isFav, setIsFav] = useState(false);
   const user = useSelector((state) => state.userReducer.user);
+  const access = useSelector((state) => state.userReducer.access);
+
   const myFavorites = useSelector(
     (state) => state.characterReducer.myFavorites
   );
@@ -54,7 +56,11 @@ export default function Card({ character }) {
       )}
       <div className={style.name}>
         <h2>{character.name}</h2>
-        {isFav ? (
+        {access === "guest" ? (
+          <button className={style.favoriteButton} onClick={handleWarning}>
+            🤍
+          </button>
+        ) : isFav ? (
           <button className={style.favoriteButton} onClick={handleFavorite}>
             ❤️
           </button>
