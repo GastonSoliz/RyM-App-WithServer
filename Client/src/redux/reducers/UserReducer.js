@@ -1,6 +1,6 @@
 const initialState = {
   user: [],
-  access: false,
+  access: "false",
 };
 
 export default function userReducer(state = initialState, action) {
