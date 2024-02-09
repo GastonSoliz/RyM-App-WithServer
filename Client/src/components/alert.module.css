@@ -8,7 +8,8 @@
 }
 
 .alertContainer span {
-  background-color: #ff5252; /* Color de fondo distintivo */
-  color: white;
+  background-color: white; /* Color de fondo distintivo */
+  border-radius: 10px;
+  border: 1px solid black;
   padding: 10px;
 }
