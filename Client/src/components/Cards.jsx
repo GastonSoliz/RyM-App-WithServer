@@ -10,7 +10,7 @@ export default function Cards({ characters }) {
     setWarning(true);
     setTimeout(() => {
       setWarning(false);
-    }, 2000);
+    }, 5000);
   }
   return (
     <div className={style.cardList}>

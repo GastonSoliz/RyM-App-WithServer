@@ -26,7 +26,7 @@ export default function Nav() {
     setWarning(true);
     setTimeout(() => {
       setWarning(false);
-    }, 2000);
+    }, 5000);
   }
 
   return (
