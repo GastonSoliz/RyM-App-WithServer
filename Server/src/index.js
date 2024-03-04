@@ -4,5 +4,5 @@ const { conn } = require("./DB_connection");
 
 server.listen(SERVER_PORT || 3001, "0.0.0.0", () => {
   conn.sync();
-  console.log(`Servidor levantado en el puerto ${PORT}`);
+  console.log(`Servidor levantado en el puerto ${SERVER_PORT}`);
 });
