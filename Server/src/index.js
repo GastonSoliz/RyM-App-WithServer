@@ -1,8 +1,8 @@
 const server = require("./app");
-const PORT = 3001;
+const { SERVER_PORT } = process.env;
 const { conn } = require("./DB_connection");
 
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(SERVER_PORT || 3001, "0.0.0.0", () => {
   conn.sync();
   console.log(`Servidor levantado en el puerto ${PORT}`);
 });
