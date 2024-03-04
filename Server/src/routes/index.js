@@ -4,9 +4,9 @@ const deleteFav = require("../controllers/deleteFav");
 const login = require("../controllers/login");
 const postUser = require("../controllers/postUser");
 const postFav = require("../controllers/postFav");
+const getFavs = require("../controllers/getFavs");
 
 const { Router } = require("express");
-const getFavs = require("../controllers/getFavs");
 
 const router = Router();
 
