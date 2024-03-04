@@ -8,16 +8,18 @@ export default function Detail() {
 
   const { id } = useParams();
 
+  //const endpoint = "http://localhost:3001/rickandmorty"
+  const endpoint =
+    "https://rickandmortyserver-gastonsoliz.onrender.com/rickandmorty";
+
   useEffect(() => {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacter(data);
-        } else {
-          window.alert("No hay personajes con ese ID");
-        }
+    axios(`${endpoint}/character/${id}`).then(({ data }) => {
+      if (data.name) {
+        setCharacter(data);
+      } else {
+        window.alert("No hay personajes con ese ID");
       }
-    );
+    });
     return setCharacter({});
   }, [id]);
 

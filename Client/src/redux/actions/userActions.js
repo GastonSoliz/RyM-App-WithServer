@@ -1,11 +1,14 @@
 import axios from "axios";
 
+//const endpoint = "http://localhost:3001/rickandmorty"
+const endpoint =
+  "https://rickandmortyserver-gastonsoliz.onrender.com/rickandmorty";
+
 export function getUser(userData) {
-  const endpoint = "http://localhost:3001/rickandmorty/login";
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `${endpoint}?email=${userData.email}&password=${userData.password}`
+        `${endpoint}/login?email=${userData.email}&password=${userData.password}`
       );
       return dispatch({
         type: "GET_USER",
@@ -18,10 +21,9 @@ export function getUser(userData) {
 }
 
 export function postUser(userData) {
-  const endpoint = "http://localhost:3001/rickandmorty/login";
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(endpoint, userData);
+      const { data } = await axios.post(`${endpoint}/login`, userData);
       return dispatch({ type: "POST_USER", payload: data });
     } catch (error) {
       console.log(error);

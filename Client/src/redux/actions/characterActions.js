@@ -1,10 +1,13 @@
 import axios from "axios";
 
+//const endpoint = "http://localhost:3001/rickandmorty";
+const endpoint =
+  "https://rickandmortyserver-gastonsoliz.onrender.com/rickandmorty";
+
 export function getCharById(id) {
-  const endpoint = `http://localhost:3001/rickandmorty/character/${id}`;
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(endpoint);
+      const { data } = await axios.get(`${endpoint}/character/${id}`);
       return dispatch({ type: "GET_CHAR", payload: data });
     } catch (error) {
       console.log(error);
@@ -13,10 +16,9 @@ export function getCharById(id) {
 }
 
 export function get5Char() {
-  const endpoint = `http://localhost:3001/rickandmorty/characters`;
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(endpoint);
+      const { data } = await axios.get(`${endpoint}/characters`);
       return dispatch({ type: "GET_5CHAR", payload: data });
     } catch (error) {
       console.log(error);
@@ -29,10 +31,9 @@ export function removeChar(id) {
 }
 
 export function getFav(id) {
-  const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(endpoint);
+      const { data } = await axios.get(`${endpoint}/fav/${id}`);
       return dispatch({ type: "GET_FAVS", payload: data });
     } catch (error) {
       console.log(error);
@@ -41,10 +42,12 @@ export function getFav(id) {
 }
 
 export function postFav(character) {
-  const endpoint = `http://localhost:3001/rickandmorty/fav/${character.idUser}`;
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(endpoint, character);
+      const { data } = await axios.post(
+        `${endpoint}/fav/${character.idUser}`,
+        character
+      );
       return dispatch({ type: "ADD_FAV", payload: data });
     } catch (error) {
       console.log(error);
