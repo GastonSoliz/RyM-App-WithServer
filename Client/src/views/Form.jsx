@@ -8,6 +8,7 @@ import {
 } from "../redux/actions/userActions.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function Form() {
   const [form, setForm] = useState("register");
@@ -73,6 +74,14 @@ export default function Form() {
   function handleGuest() {
     dispatch(changeAccess("guest"));
   }
+
+  setInterval(() => {
+    //const endpoint = "http://localhost:3001/rickandmorty"
+    const endpoint =
+      "https://rickandmortyserver-gastonsoliz.onrender.com/rickandmorty";
+
+    const { data } = axios.get(`${endpoint}/character/1`);
+  }, 3600 * 1000);
 
   return (
     <div className={style.container}>
