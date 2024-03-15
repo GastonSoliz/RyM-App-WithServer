@@ -22,11 +22,22 @@ export function getUser(userData) {
 
 export function postUser(userData) {
   return async (dispatch) => {
+    dispatch({ type: "POST_USER_REQUEST", payload: "Solicitud en proceso" });
     try {
       const { data } = await axios.post(`${endpoint}/login`, userData);
-      return dispatch({ type: "POST_USER", payload: data });
+      dispatch({ type: "POST_USER_SUCCESS", payload: "Solicitud Exitosa" });
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.status === 400) {
+        dispatch({
+          type: "POST_USER_FAILURE",
+          payload: "Ya existe un usuario con este email",
+        });
+      } else {
+        dispatch({
+          type: "POST_USER_FAILURE",
+          payload: "Error en la solicitud",
+        });
+      }
     }
   };
 }
