@@ -29,6 +29,8 @@ export default function Form() {
 
   const [warningLogin, setWarningLogin] = useState(false);
 
+  const [disabled, setDisabled] = useState(false);
+
   function handleChangeLogin(event) {
     setUserLogin({ ...userLogin, [event.target.name]: event.target.value });
   }
@@ -74,6 +76,17 @@ export default function Form() {
   function handleGuest() {
     dispatch(changeAccess("guest"));
   }
+
+  useEffect(() => {
+    let hasError = false;
+    for (let error in errors) {
+      if (errors[error] !== "") {
+        hasError = true;
+        break;
+      }
+    }
+    setDisabled(hasError);
+  }, [errors]);
 
   setInterval(() => {
     //const endpoint = "http://localhost:3001/rickandmorty"
@@ -124,7 +137,7 @@ export default function Form() {
             <input
               name="email"
               placeholder="Ingrese su email..."
-              type="text"
+              type="email"
               onChange={handleChangeRegister}
             />
             <span>{errors.email}</span>
@@ -139,7 +152,9 @@ export default function Form() {
             />
             <span>{errors.password}</span>
           </div>
-          <button type="submit">CREA TU USUARIO!</button>
+          <button type="submit" disabled={disabled}>
+            CREA TU USUARIO!
+          </button>
         </form>
       ) : (
         <form onSubmit={handleLogin} className={style.form}>

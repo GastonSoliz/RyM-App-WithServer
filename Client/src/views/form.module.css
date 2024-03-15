@@ -123,3 +123,8 @@
   cursor: pointer;
   color: #222;
 }
+
+.form button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
