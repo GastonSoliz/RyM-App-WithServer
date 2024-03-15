@@ -9,6 +9,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import loadingGif from "../assets/loading-gif.gif";
 
 export default function Form() {
   const [form, setForm] = useState("register");
@@ -16,6 +17,7 @@ export default function Form() {
   const navigate = useNavigate();
   const access = useSelector((state) => state.userReducer.access);
   const userState = useSelector((state) => state.userReducer.user);
+  const msj = useSelector((state) => state.userReducer.msj);
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
@@ -96,6 +98,7 @@ export default function Form() {
     const { data } = axios.get(`${endpoint}/character/1`);
   }, 3600 * 1000);
 
+  console.log("esto viene del back: ", msj);
   return (
     <div className={style.container}>
       <div className={style.welcome}>
@@ -152,9 +155,27 @@ export default function Form() {
             />
             <span>{errors.password}</span>
           </div>
-          <button type="submit" disabled={disabled}>
-            CREA TU USUARIO!
-          </button>
+          {msj === "Ya existe un usuario con este email" && (
+            <>
+              <span>Ya existe un usuario con este email</span>
+              <button type="submit" disabled={disabled}>
+                CREA TU USUARIO!
+              </button>
+            </>
+          )}
+          {msj === "Solicitud en proceso" && (
+            <img className={style.gifLoading} src={loadingGif} alt="carga" />
+          )}
+          {msj === "Solicitud Exitosa" && (
+            <span className={style.msjSuccess}>
+              Se creo el usuario! Puedes ir a iniciar sesion
+            </span>
+          )}
+          {msj === null && (
+            <button type="submit" disabled={disabled}>
+              CREA TU USUARIO!
+            </button>
+          )}
         </form>
       ) : (
         <form onSubmit={handleLogin} className={style.form}>

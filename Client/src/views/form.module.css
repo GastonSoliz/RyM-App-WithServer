@@ -128,3 +128,15 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.gifLoading {
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form .msjSuccess {
+  color: greenyellow;
+  font-weight: bold;
+}
