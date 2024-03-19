@@ -3,6 +3,7 @@ let initialState = {
   charactersCarrousel: [],
   myFavorites: [],
   favoritesFilter: [],
+  msjCarrousel: null,
 };
 
 export default function characterReducer(state = initialState, action) {
@@ -12,10 +13,20 @@ export default function characterReducer(state = initialState, action) {
         ...state,
         allCharacters: [...state.allCharacters, action.payload],
       };
-    case "GET_5CHAR":
+    case "GET_5CHAR_SUCCESS":
       return {
         ...state,
         charactersCarrousel: action.payload,
+      };
+    case "GET_5CHAR_REQUEST":
+      return {
+        ...state,
+        msjCarrousel: action.payload,
+      };
+    case "GET_5CHAR_FAILURE":
+      return {
+        ...state,
+        msjCarrousel: action.payload,
       };
     case "GET_FAVS":
       return {

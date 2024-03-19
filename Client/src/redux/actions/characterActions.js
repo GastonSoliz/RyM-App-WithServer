@@ -17,11 +17,12 @@ export function getCharById(id) {
 
 export function get5Char() {
   return async (dispatch) => {
+    dispatch({ type: "GET_5CHAR_REQUEST", payload: "Solicitud en proceso" });
     try {
       const { data } = await axios.get(`${endpoint}/characters`);
-      return dispatch({ type: "GET_5CHAR", payload: data });
+      return dispatch({ type: "GET_5CHAR_SUCCESS", payload: data });
     } catch (error) {
-      console.log(error);
+      dispatch({ type: "GET_5CHAR_FAILURE", payload: "Error en la solicitud" });
     }
   };
 }
