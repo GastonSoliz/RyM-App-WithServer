@@ -9,6 +9,7 @@ export default function Home() {
   const characters = useSelector(
     (state) => state.characterReducer.allCharacters
   );
+
   return (
     <div className={style.container}>
       <div className={style.viewTop}>
