@@ -3,14 +3,26 @@ let initialState = {
   charactersCarrousel: [],
   myFavorites: [],
   favoritesFilter: [],
+  msjCh: "",
 };
 
 export default function characterReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_CHAR":
+    case "GET_CHAR_REQUEST":
+      return {
+        ...state,
+        msjCh: action.payload,
+      };
+    case "GET_CHAR_SUCCESS":
       return {
         ...state,
         allCharacters: [...state.allCharacters, action.payload],
+        msjCh: "Solicitud exitosa",
+      };
+    case "GET_CHAR_FAILURE":
+      return {
+        ...state,
+        msjCh: action.payload,
       };
     case "GET_5CHAR":
       return {

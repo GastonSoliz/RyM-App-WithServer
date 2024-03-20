@@ -6,11 +6,12 @@ const endpoint =
 
 export function getCharById(id) {
   return async (dispatch) => {
+    dispatch({ type: "GET_CHAR_REQUEST", payload: "Solicitud en proceso" });
     try {
       const { data } = await axios.get(`${endpoint}/character/${id}`);
-      return dispatch({ type: "GET_CHAR", payload: data });
+      dispatch({ type: "GET_CHAR_SUCCESS", payload: data });
     } catch (error) {
-      console.log(error);
+      dispatch({ type: "GET_CHAR_FAILURE", payload: error.response });
     }
   };
 }
